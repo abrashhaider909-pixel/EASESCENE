@@ -1,0 +1,51 @@
+{
+  "name": "ezscene",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "dev:ai": "node api/dev-server.mjs",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean": "rm -rf dist server.js",
+    "lint": "tsc --noEmit",
+    "db:check": "node --env-file=.env scripts/check-supabase.mjs",
+    "build:single": "vite build -c vite.single.config.ts",
+    "test": "vitest run",
+    "test:e2e": "node tests/e2e/flow.cjs",
+    "check:secrets": "node scripts/check-secrets.mjs"
+  },
+  "dependencies": {
+    "@fontsource/archivo": "^5.3.0",
+    "@fontsource/pacifico": "^5.3.0",
+    "@google/genai": "^2.4.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.1.1",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "js-sha256": "^0.11.0",
+    "jspdf": "^4.2.1",
+    "lucide-react": "^0.546.0",
+    "pdf-lib": "^1.17.1",
+    "qrcode": "^1.5.4",
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "vite": "^8.3.0",
+    "vite-plugin-singlefile": "^2.3.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vercel/node": "^27.0.2",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vitest": "^3.2.7"
+  },
+  "description": "Open-source university approvals: fill or upload, route to the right signers, download a stamped and verifiable PDF.",
+  "license": "MIT"
+}

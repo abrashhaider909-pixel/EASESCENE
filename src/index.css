@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #111111;
+  --color-blush: #EFE2E6;
+  --color-paper: #F7F1F3;
+  --color-mist: #F3ECEE;
+  --color-line: #D9C3CA;
+  --color-mauve: #5B4A52;
+  --color-cyan: #14C3DE;
+  --color-teal: #0A6F80;
+  --color-sky: #BFDDE6;
+  --color-skylight: #E3F0F4;
+  --color-ok: #17643F;
+  --color-okbg: #D7EEDF;
+  --color-bad: #A61B1B;
+  --color-badbg: #F8DCDC;
+  --color-warn: #8A5A00;
+  --color-warnbg: #FBE7C2;
+  --color-navyink: #1B2A6B;
+  --font-sans: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-script: 'Pacifico', cursive;
+  --font-serif: 'Times New Roman', Times, Georgia, serif;
+}
+
+@layer base {
+  html { -webkit-font-smoothing: antialiased; }
+  body { margin: 0; background: var(--color-blush); color: var(--color-ink); font-family: var(--font-sans); }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--color-teal); outline-offset: 2px; }
+  button { cursor: pointer; }
+  button:disabled { cursor: not-allowed; }
+  input, select, textarea { font: inherit; color: inherit; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+.checker {
+  background-color: #fff;
+  background-image:
+    linear-gradient(45deg, #F3E6EA 25%, transparent 25%),
+    linear-gradient(-45deg, #F3E6EA 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #F3E6EA 75%),
+    linear-gradient(-45deg, transparent 75%, #F3E6EA 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+}
+
+@keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(20,195,222,.45); } 100% { box-shadow: 0 0 0 10px rgba(20,195,222,0); } }
+.pulse-ring { animation: pulse-ring 1.6s ease-out infinite; }
+@keyframes toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.toast-in { animation: toast-in .18s ease-out; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 0.9s linear infinite; }
